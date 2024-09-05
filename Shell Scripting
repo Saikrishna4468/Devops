@@ -1,0 +1,49 @@
+What is shell scripting ?
+  In linux we dont have any graphical user interface, whenever we have any problem we dont go through the folders, files, via GUI, in linux, we have to solve by commands i.e, shell commands
+  Shell scripting is writing a series of commands for the shell (a command-line interpreter) to execute. A shell script is typically used to automate repetitive tasks, execute system commands, and manage files, processes, and programs in Unix-like operating systems (such as Linux and macOS).
+
+ls -ltr --> it shows all files in the directory with all information, including date, it permission.
+nproc --> it shows how many in cpu in the instance.
+df -h --> used to know the disk size.
+top --> by using this we can see all about cpu, memory usage etc.
+man --> it stands for manual it used as prefix of any command to know about the command.
+        ex: man ls or man mkdrir.
+
+free --> it gives the information about the memory usage
+
+In Shell Scripting before writing anything we need start with "#!/bin/bash" --> it stand for shebang.
+
+"echo" it is used to print statement.
+to execute this script we use the command  " sh <script file> "  or we can use this  "./<script file>
+    ex: sh script.sh 
+        ./script.sh
+whenever we want to execute a file in linux we need to change the file permission. use this command  "chmod"
+
+chmod has three parameters.  1. root user.
+                             2. group.
+                             3. everyone.
+we have to mention permission in the form of numbers. it follows th following rule   4  this is for read
+                                                                                     2  this is for write
+                                                                                     1  this is for execute
+total 7
+
+ex: chmod 777 <file name>  --> we give all perissions to all
+    chmod 444 <file name>  --> we give read permission to all
+    chmod 400 <file name>  --> we give read permission to rootuser only.
+
+
+"history" command is usedd to know the what are the commands we use previously.
+
+set -x  # depbug mode
+
+ps -ef is used to know the what processor are working in the instance.
+
+"|" --> pipe command sends the output of the 1st command to the second command
+
+grep --> it is used to filter the output
+
+ps -f | grep amazon | awk -F" " '{print $1}' --> it give the data in the 1st column
+
+while writing the script use this
+set -e # exit script  when there is an error
+set -o pipefail
