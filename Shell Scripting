@@ -47,3 +47,23 @@ ps -f | grep amazon | awk -F" " '{print $1}' --> it give the data in the 1st col
 while writing the script use this
 set -e # exit script  when there is an error
 set -o pipefail
+
+What is Log Files ?
+Log files are files that record events, processes, and activities within a system, application, or network. These files serve as a detailed log of 
+operations, errors, system performance, user activities, and more, providing insight into what’s happening on a system over time.
+
+Use Cases of Log Files:
+1. Monitoring system health and performance.
+2. Security auditing to track suspicious activities.
+3. Debugging software issues or crashes.
+4. Compliance and auditing in regulated industries.
+
+curl (clint url) --> it is used to fetching content from web server.
+wget --> Downloading files from a website or FTP server
+        Mirroring websites (recursively downloading all linked files)
+
+Summary of Differences:
+- curl is more powerful for data transfers, API interaction, and handling a variety of protocols. It can upload as well as download data.
+- wget is simpler and optimized for downloading files, especially for tasks like downloading whole websites or resuming large downloads.
+find --> this command is used to find a particular file in a system.
+  Syntax is :  sudo find / -name <file name>
