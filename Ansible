@@ -48,3 +48,19 @@ playbook file extends with ".yml"
 --> to execute this playbook use command  -->  ansible-playbook -i inventory <playbook name>
 
 
+
+we can group the servers in ansible
+ex: we have 10 systems in that i need to install git on 5 systems and install nginx in 5 systems to achieve this 
+    we use grouping in inventory file
+Syntax for grouping:
+  [<grp_name>]  -- >  [software]
+  1. ip address
+  2. ip address
+  [<grp_name>]  -->   [hardware]
+  1. ip address
+  2. ip address
+
+we have to write two playbooks to install git and nginx in various systems.
+command to run the playbook
+
+ansible-playbook -i inventory software playbook1.yml
