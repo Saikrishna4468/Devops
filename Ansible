@@ -1,0 +1,50 @@
+What is Ansible:
+  Ansible is an open-source automation tool used for configuration management, application deployment, orchestration, and task automation. It is designed to simplify IT tasks by automating repetitive, complex operations. 
+  Ansible is agentless, meaning it doesn’t require any special software to be installed on the managed systems—it communicates using SSH (for Linux) or WinRM (for Windows).
+What is PlayBook ?
+  A Playbook in Ansible is a file written in YAML that contains a series of instructions or tasks for Ansible to execute on managed nodes (servers).
+What is Ansible Adhoc ?
+  if we want to execute a couple of commands in ansible nodes, instead of going through ansible playbook, we can use ansible adhoc commands.
+
+
+1. install Ansible in master -- > sudo apt install ansible
+2. to check -- > ansible --version
+3. generate key in master node -- > ssh-keygen
+4. copy public key in master that is in particular path
+5. go to child node again do "ssh-keygen" in that, go to (vi authoriged keys) paste the public key in that.
+6. then we access the child node from master node.
+7. you can test it by ssh <private address of child node> --> you can access it.
+8. logout
+
+we need to save child node private ip address in inventory file which is in master node
+
+execute this command in aster node
+    ansible -i inventory all -m "shell" -a "touch devops"
+    --> -m indicates the module, -a indicates the command we exxecute.
+    -->  this coomand creates the devops file in child nodes i.e., ip address in invetory file
+    -->  shell indicates the, we executes the shell commands
+
+we can executes various commands visit ansible documentations  --> https://docs.ansible.com/ansible/2.9/modules/copy_module.html#copy-module
+
+playbook to install nginx in child nodes
+
+playbook file extends with ".yml"
+
+---
+- name: Install and Start nginx
+  hosts: all
+  become: true
+
+  tasks:
+   - name: Install nginx
+     apt:
+       name: nginx
+       state: present
+   - name: start nginx
+     service:
+       name: nginx
+       state: started
+
+--> to execute this playbook use command  -->  ansible-playbook -i inventory <playbook name>
+
+
