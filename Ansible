@@ -26,6 +26,9 @@ execute this command in aster node
 
 we can executes various commands visit ansible documentations  --> https://docs.ansible.com/ansible/2.9/modules/copy_module.html#copy-module
 
+
+
+
 playbook to install nginx in child nodes
 
 playbook file extends with ".yml"
@@ -238,6 +241,9 @@ An Ansible role is a reusable, self-contained unit of automation that is used to
 Roles help to encapsulate and modularize the logic and configuration needed to manage a particular system or application component.
 
 This modular approach promotes reusability, maintainability, and consistency across different playbooks and environments.
+
+ansible role is created by following command...
+syntax : ansible-galaxy role init <role_name>
 
 Key Components of an Ansible Role
 Tasks
