@@ -4,3 +4,6 @@ Disadvantages of Docker
       compared to last container, so that the kernel will kill last container.one of the container will die because of other containers, this is because of single host
 2. Not having a Auto healing feature
 3. Docker does not support Enterprise level support
+
+These Disadvantages will overcome by Kubernetes
+
