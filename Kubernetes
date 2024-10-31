@@ -7,3 +7,74 @@ Disadvantages of Docker
 
 These Disadvantages will overcome by Kubernetes
 
+to use minikube on ec2 instance
+- install kubectl --> documentation
+change permission to the kubectl file   - sudo chmod +x kubectl
+                                          sudo mv kubectl /usr/loacl/bin
+check kubectl version - kubectl version
+- install minikube --> documentation
+- install docker for minikube
+then use command - minikube start
+to start the minikube
+
+what is minikube ?
+it is a command line tool that allows you to create kubernetes cluster
+
+to know the details of nodes in cluster command
+kubectl get nodes
+our kubectl is connected to the kubernates cluster then it gives the nodes
+
+now create a pod
+pod is a yaml file that contains the specifications of our container like port mapping, volumes, type of network
+
+vi pod.yml ----> write yaml file for that
+
+for creation of pod command
+kubectl create -f pod.yml   ---> this will create our pod 
+to see the pods commad
+kubectl get pods ---> shows the available pods
+kubectl get pods -o wide  ---> it shows all details including ip
+
+if you want to enter into the cluster command
+minikube ssh  ---> now you are in minikube cluster if you enter "docker images" command there you can see kuberneter master components like scheduler, api server, etcd etc
+
+to know more about kubenertes commands use "kubectl cheetsheet"
+
+to delete the pod command
+kubectl delete pod <podfile.yml name>
+
+if you want to debug the pod or to know the status of the pod command
+"kubectl describe pod <name>" --->  this will give all the information of everything inside the pod
+
+difference between pod and container and deployment ?
+container :- its a package that contains all necessary dependencies require foan appication, we create a container using any cntainerized platform like docker
+              if we run that container we use command called "docker run -d -p 80:80 -it --network=xxx <name>"
+pod :- pod is a smallest and simplest unit that you can deploy, it contains one or multiple containers, all containers in the pod can share same volume and same network.
+
+deployment :- why we came from docker to kubernetes because the lack of auto scalling and auto healing eatres in docker. in deployment we can see these features. 
+                it is a yaml file (deployment.yml); in this yaml file we spicify how many replicas(pods) we want, so that our kubernetes cluster will maintain that number of pods in cluster
+                if someone delete any of the pod by mistake, it will create new pod based on our specification to match the replica count it is called auto healing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
