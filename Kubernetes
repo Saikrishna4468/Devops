@@ -55,8 +55,12 @@ deployment :- why we came from docker to kubernetes because the lack of auto sca
                 it is a yaml file (deployment.yml); in this yaml file we spicify how many replicas(pods) we want, so that our kubernetes cluster will maintain that number of pods in cluster
                 if someone delete any of the pod by mistake, it will create new pod based on our specification to match the replica count it is called auto healing.
 
-
-
+to create deploy, first we create deployment.yaml
+command to create deploy "kubectl apply -f <deployment.yaml>
+if we create deploy, it creates pod and replicaset
+command to view -- kubectl get deploy  ---> to list the deploys
+                    kubectl get pods  ---> to list the pods
+                    kubectl get rs   ---> for replica sets
 
 
 
