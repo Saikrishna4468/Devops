@@ -1,3 +1,31 @@
+what is the difference between docker and k8s ?
+Docker is a container platform, where as kubernetes is a container orchestration environment that offers 
+ capabilities like auto scalling, auto healing, clustering and enterprise level support like load balancing.
+
+what is the difference between docker swarm and k8s ? 
+k8s is better suited for large organisations as it offers more scalability, networking capabilities like
+like policies and huge third party ecosystem support.
+docker swarm is docker based solution, it is easy to use and it is well suited for small scale application because th support for
+scalling and auto healing are very limited in doceker swarm
+
+what is the difference between docker container and k8s pods?
+A Docker container is a lightweight, standalone package that includes everything needed to run a piece of software, such as code, libraries, and system tools. 
+In contrast, a Kubernetes pod is a higher-level abstraction that can encapsulate one or more containers, allowing them to share resources like network and storage. 
+Essentially, while containers are the individual units of deployment, pods serve as the management layer for those containers within Kubernetes.
+we can run multiple containers in pods.
+
+what is namespace in k8s?
+A Kubernetes namespace is a mechanism for isolating groups of resources within a single Kubernetes cluster, allowing for better organization and management.
+Namespaces enable multiple teams or projects to share the same cluster without interfering with each other's resources, as each namespace has its own scope for resource names, which must be unique only within that namespace. 
+Kubernetes automatically creates several default namespaces, including default, kube-system, kube-public, and kube-node-lease, and administrators can create custom namespaces as needed to enhance security and resource allocation
+
+What is the role of kube proxy?
+Kube proxy works by maintaining a set of network rules on each node in the cluster, which are updated dynamically as services are added or removed. when a client sends a requests to a service, 
+the request is intercepted by kube proxy on the node where it was received. kube proxy then looks up the destination endpoint for the service and routes the request accordingly.
+Kube proxy is an essential component of a k8s cluster, as it ensures that servix=ces can communicate with each other.
+
+Day to day activities on kubernetes?
+
 Disadvantages of Docker
 1. Docker is a single host.
   ex: i have a host on top of it i install docker and i run 100 containers on it, among all of it 1 st container takes lots of memory,
@@ -62,7 +90,24 @@ command to view -- kubectl get deploy  ---> to list the deploys
                     kubectl get pods  ---> to list the pods
                     kubectl get rs   ---> for replica sets
 
+Kubernetes Service
 
+In deployment we have a feature like auto healing, like for an example if i have 3 pods (172.17.8.1, 172.17.8.2, 172.17.8.3) they have they individual IPs
+whenever if any pod has down, the auto healing will automatically create a new pod but the new pod has new ip i.e., 172.17.8.5
+this is one of the drawback for accessing the pod everytime its changes the ip
+
+When a pod replica dies, a new pod replaces with new ip adress as a feature of auto healing
+
+Service  created on top of development and it acts as load balancer. Instead of accessing the ips of every single pod, service is used instead.
+Service using the kube-proxy will forward the request to underlying pod based on label and selectors, load balancing them out at the same time.
+Service keep tracks of pods based on labels and selectors instead of ip adress, since ip adress are bound to change.
+Service also expose your application to the external world, for end user to use the application.
+In kubernetes service we have loadbalancing instead of ip we access the pods with dns name, so if any pod is created with new ip we can access it with the DNS name
+By using kubernetes service we can expose our appication, it allows our application to outside the kubernetes cluster.
+we can create the k8s service in 3 types:
+1. cluster IP. ---> we can access the application only who has the access to the kuberntes node or access inside the kubernetes 
+2. Nodeport.  ---> we can access the application withn the network or within the organisation those who are in VPC
+3. Loadbalancing. ---< we can access it globally.
 
 
 
