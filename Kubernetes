@@ -109,8 +109,14 @@ we can create the k8s service in 3 types:
 2. Nodeport.  ---> we can access the application withn the network or within the organisation those who are in VPC
 3. Loadbalancing. ---< we can access it globally.
 
+to execute the file we have to use the command
+"kubectl apply -f <service fle name.yml>"
+to view that use command "kubectl get svc"
 
+to see all pods, deployments, replicas use commands
+"kubectl get all"
 
+ingress
 
 
 
