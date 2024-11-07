@@ -135,10 +135,18 @@ ingress
 
 
 
+RBAC (Role base access control)
+Two primary responsibility of RBAC user management as well as managing the access of the services that are runnimg on the cluster.
 
+in an organization we have admin cluster what if some one or some action, delete etcd or kube system its a huge loss for the team to overcoe that,
+depending on the ROLE of the person we would define ACCESS and CONTROL.
 
-
-
+in an service account we launch a malicious pod that will going to deleting some centen related to api server or config maps.
+in that scenario we define what access does this pod need in the k8s cluster, should this pod access to config maps, should access for secrets we define the rules for it 
+for managing the RBAC we need
+1. service account / users
+2. Roles / Cluster Role
+3. Role binding / Cluster role binding
 
 
 
