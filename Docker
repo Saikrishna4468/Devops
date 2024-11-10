@@ -1,0 +1,8 @@
+Docker
+
+Docker image: it is actual package
+              it is a artifact that can be moved around
+
+Docker Container: if i pull the image to my local machine
+                  actually start the application
+
