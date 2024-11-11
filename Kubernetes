@@ -1,3 +1,34 @@
+What is Kubernetes ?
+Kubernetes is an open-source container orchestration platform developed by Google and now maintained by the Cloud Native Computing Foundation (CNCF). 
+It is designed to automate the deployment, scaling, and management of containerized applications. Containers are lightweight, 
+portable units of software that include everything needed to run an application, such as code, libraries, and dependencies.
+
+What is POD ?
+In Kubernetes (K8s), a Pod is the smallest and most basic deployable unit. It represents a single instance of a running process in your cluster and typically contains one or more containers (often Docker containers).
+Containers in a Pod share storage volumes, which allows them to access the same data.
+They also share the same network namespace, meaning they can communicate with each other using localhost.
+Pods are designed to be ephemeral. When a Pod is deleted, it doesn’t come back; instead, a new Pod is created with a new IP address.
+
+What is Deployment ?
+In Kubernetes, a Deployment is a higher-level abstraction, make it easier to scale, update, and manage your application by automating the creation and management of Pods.
+A Deployment can manage multiple replicas (instances) of Pods, allowing you to scale up or down easily by adjusting the replicas field in the configuration.
+Kubernetes will ensure that the specified number of replicas are always running.
+If a Pod fails or goes unhealthy, Kubernetes automatically replaces it to maintain the desired number of replicas.
+
+what is service ?
+In Kubernetes, a Service is an abstraction that defines a logical set of Pods and enables network access to them. Services help expose an application running on multiple Pods as a single, 
+unified network endpoint, allowing external or internal access based on configuration.
+
+what is ingress ?
+In Kubernetes, an Ingress is an API object that manages external access to services within the cluster, typically over HTTP and HTTPS. Ingress can route traffic from the outside world to the right services based on routing rules. 
+It provides a way to define rules to expose services externally, supporting advanced features such as load balancing, SSL/TLS termination, and name-based virtual hosting.
+Components of Ingress
+Ingress Controller:
+To use Ingress, a cluster must have an Ingress Controller running. The Ingress Controller watches for Ingress resources and configures the network layer accordingly. Examples include NGINX, HAProxy, and Traefik.
+Ingress Rules:
+Each Ingress resource contains rules defining how traffic should be routed based on hostnames and paths.
+
+
 what is the difference between docker and k8s ?
 Docker is a container platform, where as kubernetes is a container orchestration environment that offers 
  capabilities like auto scalling, auto healing, clustering and enterprise level support like load balancing.
@@ -149,9 +180,13 @@ for managing the RBAC we need
 3. Role binding / Cluster role binding
 
 
-
-
-
-
+Config maps and secret
+what is config map ?
+config map solving the problem of storing the information, that can be used for our applicayion later point of time.
+config map store data in etcd database in k8s cluster
+What is secret ?
+if we have sensible data, then it is stored in secret, the secret file it stores the data in encrypted form.
+note: if we have nonsesible data then it can store in config map, if it is sensible then store in secret.
+the secret file has RBAC(Roll base access control) so that only few people can access that file.
 
 
