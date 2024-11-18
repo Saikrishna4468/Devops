@@ -162,7 +162,17 @@ to see all pods, deployments, replicas use commands
 "kubectl get all"
 
 ingress
+if i create a service with network type called loadbalcner, my cloud provider give a create a loadbalncer and dns name.
+For ex: if i have multiple serivices and i want to run all services so it create so many loadbalancers to access those services, our cloud provider charges a lot for this.
+to overcome this INGRESS comes into picture.
 
+In Kubernetes, ingress is an PI object that provides external access to services witin a cluser.
+It acts as a layer 7(application layer) load balancer allowing external traffic to be routed to diferent services based on HTTP/HTTPS routes and rules.
+we have two components in ingress they are:
+           1. Ingress Controller
+           2. Ingress resources
+Ingress controller is the main component of ingress, the incoming traffic will first hit the ingress controoler, then it checks the ingress resource
+Ingress resource, in this we define the rules for the services what kind of traffic will flow in  the cluster,  
 
 
 
